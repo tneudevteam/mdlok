@@ -16,6 +16,22 @@
   padding: 16px;
   height: 151px;
 
+  &:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    margin-top: -39px;
+    height: 151px;
+    display: block;
+    background-image: url('/images/navdrawer/evening.png');
+    background-size: cover;
+    filter: brightness(0.4);
+    -webkit-filter: brightness(0.4);
+  }
+
   .nav-drawer-avatar {
     width: 48px;
     height: 48px;
