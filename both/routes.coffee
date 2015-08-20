@@ -1,5 +1,6 @@
 Router.configure
-  layoutTemplate: 'layout'
+  layoutTemplate: 'Layout'
+  loadingTemplate: 'Loading'
 
 Router.route '/',
   name: 'Home'
