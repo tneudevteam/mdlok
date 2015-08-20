@@ -1,2 +1,2 @@
 Router.route '/',
-  name: 'home'
+  name: 'Home'
