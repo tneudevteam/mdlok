@@ -17,7 +17,7 @@ Template.NavDrawer.helpers
     }
     {
       caption: 'Ми у ВК'
-      route: '/go?to=https://vk.com/moduleok'
+      route: '/vk'
       icon: 'people'
       spaceBefore: true
     }

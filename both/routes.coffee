@@ -8,9 +8,9 @@ Router.route '/',
 Router.route '/auth',
   name: 'Auth'
 
-Router.route '/go', ->
+Router.route '/vk', ->
   @response.writeHead 302, {
-    'Location': @params.query.to
+    'Location': 'http://vk.com/moduleok'
   }
   @response.end()
 , {where: 'server'}
