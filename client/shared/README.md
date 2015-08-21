@@ -1,0 +1,1 @@
+Templates that are included to every page
