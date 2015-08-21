@@ -24,5 +24,5 @@ doAuth = (tmpl) ->
     console.log err, result
 
 getCredentials = (tmpl) ->
-  login: tmpl.$('#doAuth').val()
+  login: tmpl.$('#login').val()
   password: tmpl.$('#password').val()
