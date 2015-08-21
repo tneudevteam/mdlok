@@ -4,11 +4,8 @@ Meteor.methods
 
     if apiResponse.success
       if not userRegistered credentials.login
-        userId = registerUser _.extend credentials, {cookies: apiResponse.cookies}
-        console.log userId
-
-        # code here...
-
+        registerUser _.extend credentials, {cookies: apiResponse.cookies}
+        insertStudent apiResponse.student
         true
       else
         true
@@ -29,3 +26,16 @@ registerUser = (credentials) ->
     password: credentials.password
     profile:
       hash: credentials.cookies
+
+insertStudent = (student) ->
+  studentId = Students.insert
+    name: student.name
+    group: student.group
+
+  insertGroup studentId, student
+
+insertGroup = (studentId, student) ->
+  Groups.update {name: student.group}, {
+    $addToSet:
+      students: studentId
+  }, {upsert: true}
