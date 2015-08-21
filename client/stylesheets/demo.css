@@ -14,14 +14,6 @@
  * limitations under the License.
  */
 
-html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-}
-
-.demo-content {
-  max-width: 1080px;
-}
-
 .demo-charts {
   -webkit-box-align: center;
   -webkit-align-items: center;
