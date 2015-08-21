@@ -4,8 +4,8 @@ Meteor.methods
 
     if apiResponse.success
       if not userRegistered credentials.login
-        registerUser _.extend credentials, {cookies: apiResponse.cookies}
-        insertStudent apiResponse.student
+        userId = registerUser _.extend credentials, {cookies: apiResponse.cookies}
+        insertStudent userId, apiResponse.student
         true
       else
         true
@@ -27,10 +27,12 @@ registerUser = (credentials) ->
     profile:
       hash: credentials.cookies
 
-insertStudent = (student) ->
+insertStudent = (userId, student) ->
+  console.log StudentUtils(student).getOverAllAverageScore()
   studentId = Students.insert
     name: student.name
     group: student.group
+    userId: userId
 
   insertGroup studentId, student
 
@@ -38,4 +40,6 @@ insertGroup = (studentId, student) ->
   Groups.update {name: student.group}, {
     $addToSet:
       students: studentId
+    $set:
+      averageScore: 78
   }, {upsert: true}

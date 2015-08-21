@@ -4,6 +4,8 @@ Router.configure
 
 Router.route '/',
   name: 'Home'
+  waitOn: ->
+    Meteor.subscribe 'students'
 
 Router.route '/auth',
   name: 'Auth'
