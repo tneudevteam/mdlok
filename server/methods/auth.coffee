@@ -1,12 +1,10 @@
 Meteor.methods
   'auth': (credentials) ->
-    apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScores?v=2" +
-        "&login=#{credentials.login}&password=#{credentials.password}"
-    jsonResponse = JSON.parse apiResponse.content
+    apiResponse = getAPIResponse credentials
 
-    if jsonResponse.success
+    if apiResponse.success
       if not userRegistered credentials.login
-        userId = registerUser _.extend credentials, {cookies: jsonResponse.cookies}
+        userId = registerUser _.extend credentials, {cookies: apiResponse.cookies}
         console.log userId
 
         # code here...
@@ -17,10 +15,15 @@ Meteor.methods
     else
       false
 
+getAPIResponse = (credentials) ->
+  apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScores?v=2" +
+      "&login=#{credentials.login}&password=#{credentials.password}"
+  JSON.parse apiResponse.content
+
 userRegistered = (username) ->
   Meteor.users.find(username: username).count() > 0
 
-registerUser = (credentials, jsonResponse) ->
+registerUser = (credentials) ->
   Accounts.createUser
     username: credentials.login
     password: credentials.password
