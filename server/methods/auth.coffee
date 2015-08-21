@@ -28,11 +28,11 @@ registerUser = (credentials) ->
       hash: credentials.cookies
 
 insertStudent = (userId, student) ->
-  console.log StudentUtils(student).getOverAllAverageScore()
   studentId = Students.insert
     name: student.name
     group: student.group
     userId: userId
+    averageScore: StudentUtils(student).getOverAllAverageScore()
 
   insertGroup studentId, student
 

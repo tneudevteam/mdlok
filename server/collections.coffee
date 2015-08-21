@@ -1,6 +1,6 @@
 Meteor.publish 'students', ->
   studentsCursor = Students.find userId: @userId
-  studentGroup = studentsCursor.fetch()[0].group
+  studentGroup = Students.findOne(userId: @userId)?.group
   groupsCursor = Groups.find name: studentGroup
 
   [
