@@ -28,6 +28,7 @@ registerUser = (credentials) ->
       hash: credentials.cookies
 
 insertStudent = (userId, student) ->
+  student = StudentUtils(student).mergeSemesters()
   studentId = Students.insert
     name: student.name
     group: student.group
@@ -35,6 +36,7 @@ insertStudent = (userId, student) ->
     averageScore: StudentUtils(student).getOverAllAverageScore()
 
   insertGroup studentId, student
+  insertSubjects studentId, student
 
 insertGroup = (studentId, student) ->
   Groups.update {name: student.group}, {
@@ -43,3 +45,5 @@ insertGroup = (studentId, student) ->
     $set:
       averageScore: 78
   }, {upsert: true}
+
+insertSubjects = (studentId, student) ->
