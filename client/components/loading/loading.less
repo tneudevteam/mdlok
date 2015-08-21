@@ -1,7 +1,10 @@
 @spinner-size: 64px;
 
 .mdl-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -(@spinner-size / 2);
   width: @spinner-size;
   height: @spinner-size;
-  margin: 0 auto;
 }
