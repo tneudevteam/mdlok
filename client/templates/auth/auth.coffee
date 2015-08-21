@@ -1,15 +1,28 @@
+Template.Auth.onCreated ->
+  @loggingIn = new ReactiveVar false
+
+
+Template.Auth.helpers
+  'loggingIn': ->
+    Template.instance().loggingIn.get()
+
+
 Template.Auth.events
   'keypress #login, keypress #password': (event, tmpl) ->
     if pressedEnter = event.which is 13
-      login getCredentials tmpl
+      doAuth tmpl
 
   'click #do-auth': (event, tmpl) ->
-    login getCredentials tmpl
+    doAuth tmpl
 
+
+doAuth = (tmpl) ->
+  tmpl.loggingIn.set true
+
+  credentials = getCredentials tmpl
+  Meteor.call 'auth', credentials, (err, result) ->
+    console.log err, result
 
 getCredentials = (tmpl) ->
-  login: tmpl.$('#login').val()
+  login: tmpl.$('#doAuth').val()
   password: tmpl.$('#password').val()
-
-login = (credentials) ->
-  console.log credentials

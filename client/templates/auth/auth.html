@@ -5,23 +5,27 @@
         <h2 class="mdl-card__title-text">Вхід</h2>
       </div>
       <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-        Введіть логін та пароль від <a href="http://mod.tanet.edu.te.ua" target="_blank">mod.tanet.edu.te.ua</a>
+        {{#if loggingIn}}
+          {{> Loading}}
+        {{else}}
+          Введіть логін та пароль від <a href="http://mod.tanet.edu.te.ua" target="_blank">mod.tanet.edu.te.ua</a>
 
-        <form action="#">
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="login" pattern=".{4,16}"/>
-            <label class="mdl-textfield__label" for="login">Логін</label>
-          </div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="password" id="password" pattern=".{4,16}"/>
-            <label class="mdl-textfield__label" for="password">Пароль</label>
-          </div>
-          <a href="#"
-             id="do-auth"
-             class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">
-            Увійти
-          </a>
-        </form>
+          <form action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="login" pattern=".{4,16}"/>
+              <label class="mdl-textfield__label" for="login">Логін</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="password" id="password" pattern=".{4,16}"/>
+              <label class="mdl-textfield__label" for="password">Пароль</label>
+            </div>
+            <a href="#"
+               id="do-auth"
+               class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent">
+              Увійти
+            </a>
+          </form>
+        {{/if}}
       </div>
     </div>
   </div>
