@@ -5,6 +5,9 @@ Router.configure
 Router.route '/',
   name: 'Home'
 
+Router.route '/auth',
+  name: 'Auth'
+
 Router.route '/go', ->
   @response.writeHead 302, {
     'Location': @params.query.to
