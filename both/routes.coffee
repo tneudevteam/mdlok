@@ -10,6 +10,12 @@ Router.route '/',
 Router.route '/auth',
   name: 'Auth'
 
+Router.route '/subjects',
+  name: 'Subjects'
+
+Router.route '/modules',
+  name: 'Modules'
+
 Router.route '/vk', ->
   @response.writeHead 302, {
     'Location': 'http://vk.com/moduleok'
