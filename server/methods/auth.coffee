@@ -13,9 +13,12 @@ Meteor.methods
       false
 
 getAPIResponse = (credentials) ->
-  apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScores?v=2" +
-      "&login=#{credentials.login}&password=#{credentials.password}"
-  JSON.parse apiResponse.content
+  try
+    apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScores?v=2" +
+        "&login=#{credentials.login}&password=#{credentials.password}"
+    JSON.parse apiResponse.content
+  catch e
+    success: false
 
 userRegistered = (username) ->
   Meteor.users.find(username: username).count() > 0
