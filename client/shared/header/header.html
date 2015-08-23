@@ -2,11 +2,13 @@
   <header class="demo-header mdl-layout__header mdl-color--green-700 mdl-color-text--white">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">MODULE.OK</span>
+
       <div class="mdl-layout-spacer"></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
         <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
           <i class="material-icons">search</i>
         </label>
+
         <div class="mdl-textfield__expandable-holder">
           <input class="mdl-textfield__input" type="text" id="search"/>
           <label class="mdl-textfield__label" for="search">Enter your query...</label>
@@ -21,5 +23,12 @@
         <li class="mdl-menu__item">Legal information</li>
       </ul>
     </div>
+    {{#if tabs}}
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--green-700">
+        {{#each tabs}}
+          <a href="#{{id}}" class="mdl-layout__tab">{{name}}</a>
+        {{/each}}
+      </div>
+    {{/if}}
   </header>
 </template>

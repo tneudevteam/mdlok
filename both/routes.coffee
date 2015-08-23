@@ -13,9 +13,13 @@ Router.map ->
 
   @route '/subjects',
     name: 'Subjects'
+    waitOn: ->
+      Meteor.subscribe 'students'
 
   @route '/modules',
     name: 'Modules'
+    waitOn: ->
+      Meteor.subscribe 'students'
 
   @route '/vk', ->
     @response.writeHead 302, {
