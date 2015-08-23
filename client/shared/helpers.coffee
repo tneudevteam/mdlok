@@ -1,4 +1,4 @@
-Template.registerHelper 'randomColorClass', ->
+Template.registerHelper 'randomColorClass', (name) ->
   colors = [
     'mdl-color--red-700'
     'mdl-color--pink-700'
@@ -19,4 +19,4 @@ Template.registerHelper 'randomColorClass', ->
     'mdl-color--blue-grey-700'
   ]
 
-  _.shuffle(colors)[0]
+  colors[name.length % colors.length]
