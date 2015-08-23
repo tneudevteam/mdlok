@@ -19,4 +19,4 @@ Template.registerHelper 'randomColorClass', ->
     'mdl-color--blue-grey-700'
   ]
 
-  colors[_.random(0, colors.length - 1)]
+  _.shuffle(colors)[0]
