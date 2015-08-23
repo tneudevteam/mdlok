@@ -1,4 +1,4 @@
-Template.registerHelper 'randomColorClass', (name) ->
+Template.registerHelper 'colorFor', (name) ->
   colors = [
     'mdl-color--red-700'
     'mdl-color--pink-700'
