@@ -11,6 +11,10 @@
     student.averageScore = getOverAllAverageScore student
     @
 
+  withUserId: (userId) ->
+    student.userId = userId
+    @
+
   get: ->
     student
 

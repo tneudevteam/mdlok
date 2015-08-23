@@ -31,4 +31,9 @@ registerUser = (credentials) ->
       hash: credentials.cookies
 
 insertStudent = (userId, student) ->
-  Students.insert StudentAdapter(student).mergeSemesters().addAverageScore().get()
+  Students.insert(
+    StudentAdapter(student).mergeSemesters()
+                            .addAverageScore()
+                            .withUserId(userId)
+                            .get()
+  )

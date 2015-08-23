@@ -2,10 +2,10 @@
   <header class="nav-drawer-header">
     <img src="images/user.jpg" class="nav-drawer-avatar">
 
-    <span>Голубєв Владислав</span>
+    <span>{{name}}</span>
 
     <div class="nav-drawer-avatar-dropdown">
-      <span>ПЗАС-22</span>
+      <span>{{group}}</span>
 
       <div class="mdl-layout-spacer"></div>
       <button id="switch-account-dropdown-button"
@@ -14,7 +14,7 @@
       </button>
       <ul for="switch-account-dropdown-button"
           class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
-        <li class="mdl-menu__item">Голубєв Владислав</li>
+        <li class="mdl-menu__item">{{name}}</li>
         <li class="mdl-menu__item" id="switch-account-button">
           <i class="material-icons">swap_horiz</i>&nbsp;
           Змінити аккаунт
