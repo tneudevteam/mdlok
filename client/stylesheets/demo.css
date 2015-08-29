@@ -47,13 +47,6 @@ _:-ms-input-placeholder, :root .demo-graphs {
 _:-ms-input-placeholder, :root .demo-graph {
   max-height: 300px;
 }
-/* TODO end */
-.demo-graph:nth-child(1) {
-  color: #00b9d8;
-}
-.demo-graph:nth-child(2) {
-  color: #d9006e;
-}
 
 .demo-cards {
   -webkit-box-align: start;
