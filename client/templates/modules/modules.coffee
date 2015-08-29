@@ -1,0 +1,2 @@
+Template.Modules.helpers
+  modules: ->

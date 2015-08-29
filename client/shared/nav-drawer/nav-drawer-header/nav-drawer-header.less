@@ -18,18 +18,22 @@
 
   &:before {
     content: "";
-    position: fixed;
+    position: absolute;
     left: 0;
-    right: 0;
+    top: 0;
     z-index: -1;
     width: 100%;
-    margin-top: -68px;
-    height: 171px;
+    height: 151px;
     display: block;
     background-image: url('/images/navdrawer/evening.png');
     background-size: cover;
     filter: brightness(0.4);
     -webkit-filter: brightness(0.4);
+  }
+
+  .student-name {
+    font-size: 1.3rem;
+    line-height: 2.3rem;
   }
 
   .nav-drawer-avatar {
