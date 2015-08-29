@@ -1,0 +1,20 @@
+<template name="OverhearedFeed">
+  <div class="overheared-block mdl-cell {{width}} mdl-grid mdl-grid--no-spacing mdl-card">
+    <div class="overheared-block-title mdl-card__title mdl-card--expand mdl-color--blue-grey-300">
+      <h2 class="mdl-card__title-text mdl-color-text--white">Підслухано у ТНЕУ</h2>
+    </div>
+    {{#each overhearedFeed}}
+      <div class="overheared-post-card mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-color--blue-grey-100"
+           data-post-id="{{id}}">
+        <div class="mdl-card__supporting-text mdl-color-text--black truncate">
+          {{text}}
+          <div class="post-metrics">
+            <span class="post-metric"><i class="fa fa-calendar"></i>{{formatUnixTime date}}</span>
+            <span class="post-metric"><i class="fa fa-comments"></i>{{comments}}</span>
+            <span class="post-metric"><i class="fa fa-heart"></i>{{likes}}</span>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>
