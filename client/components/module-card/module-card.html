@@ -1,0 +1,10 @@
+<template name="ModuleCard">
+  <div class="subject-card mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--6-col-tablet mdl-cell--4-col-desktop"
+       data-name="{{name}}">
+    <div class="mdl-card__title mdl-card--expand {{scoreColorFor score}}">
+      <h2 class="subject-name mdl-card__title-text mdl-color-text--white">{{name}}</h2>
+      <div class="mdl-layout-spacer"></div>
+      <span class="subject-total-score mdl-color-text--white">{{score}}</span>
+    </div>
+  </div>
+</template>

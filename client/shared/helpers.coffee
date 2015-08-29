@@ -1,3 +1,17 @@
+Template.registerHelper 'scoreColorFor', (score) ->
+  score = parseInt score
+  switch
+    when 90 <= score <= 100
+      'mdl-color--green-600'
+    when 75<= score < 90
+      'mdl-color--light-green-600'
+    when 60 <= score < 75
+      'mdl-color--deep-orange-600'
+    when 60 < score
+      'mdl-color--red-600'
+    else
+      'mdl-color--blue-grey-600'
+
 Template.registerHelper 'colorFor', (name) ->
   colors = [
     'mdl-color--red-700'
