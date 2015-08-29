@@ -4,11 +4,7 @@ Template.Subjects.onCreated ->
 
 Template.Subjects.helpers
   subjects: ->
-    semester = Students.findOne()?.selectedSemester
-    if semester is 2
-      allYearSubjects = [].concat Students.findOne().semesters[0].subjects, Students.findOne().semesters[1].subjects
-    else
-      Students.findOne()?.semesters[semester].subjects
+    getSubjects Students.findOne()
 
 
 Template.Subjects.events

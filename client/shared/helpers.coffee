@@ -1,3 +1,11 @@
+@getSubjects = (student) ->
+  semester = student?.selectedSemester
+  if semester is 2
+    allYearSubjects = [].concat student.semesters[0].subjects, student.semesters[1].subjects
+  else
+    student?.semesters[semester].subjects
+
+
 Template.registerHelper 'formatUnixTime', (date) ->
   moment.unix(date).format('DD.MM.YYYY')
 

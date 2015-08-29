@@ -1,3 +1,5 @@
 <template name="Modules">
-  Modules are here...
+  {{#each subjects}}
+    {{> ModuleCard name=date score=score}}
+  {{/each}}
 </template>

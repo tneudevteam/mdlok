@@ -3,7 +3,7 @@ Template.Subject.onCreated ->
 
 
 Template.Subject.onRendered ->
-  for subject in Students.findOne().semesters[0].subjects
+  for subject in getSubjects Students.findOne()
     if subject.name is @data.name
       @subject.set subject
 
