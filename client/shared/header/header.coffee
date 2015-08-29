@@ -3,7 +3,5 @@ Template.Header.onCreated ->
 
 
 Template.Header.helpers
-  tabs: ->
-    Session.get 'tabs'
   appHeader: ->
     Session.get 'appHeader'

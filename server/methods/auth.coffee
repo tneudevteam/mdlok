@@ -35,5 +35,6 @@ insertStudent = (userId, student) ->
     StudentAdapter(student).mergeSemesters()
                             .addAverageScore()
                             .withUserId(userId)
+                            .withSelectedSemester()
                             .get()
   )

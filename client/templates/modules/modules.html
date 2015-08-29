@@ -1,5 +1,16 @@
 <template name="Modules">
-  {{#each subjects}}
-    {{> ModuleCard name=date score=score}}
-  {{/each}}
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+      {{#each tabs}}
+        <a href="#{{id}}" class="mdl-tabs__tab {{#if _eq id "module0"}}is-active{{/if}}">{{name}}</a>
+      {{/each}}
+    </div>
+    {{#each modules}}
+      <div id="{{id}}" class="mdl-tabs__panel mdl-grid {{#if _eq id "module0"}}is-active{{/if}}">
+        {{#each subjects}}
+          {{> ModuleCard name=date score=score}}
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
 </template>

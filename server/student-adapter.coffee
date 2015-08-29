@@ -15,6 +15,10 @@
     student.userId = userId
     @
 
+  withSelectedSemester: ->
+    student.selectedSemester = 0
+    @
+
   get: ->
     student
 

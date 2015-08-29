@@ -13,7 +13,7 @@ Template.NavDrawerHeader.helpers
 
   semester: ->
     student = Students.findOne()
-    switch parseInt student.selectedSemester
+    switch parseInt student?.selectedSemester
       when 0 then 'Перший семестр'
       when 1 then 'Другий семестр'
       when 2 then 'Увесь рік'
