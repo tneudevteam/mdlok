@@ -16,9 +16,14 @@ Template.NavDrawer.helpers
       icon: 'subject'
     }
     {
+      caption: 'Змінити аккаунт'
+      route: '/logout'
+      icon: 'swap_horiz'
+      spaceBefore: true
+    }
+    {
       caption: 'Ми у ВК'
       route: '/vk'
       icon: 'people'
-      spaceBefore: true
     }
   ]

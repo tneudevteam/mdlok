@@ -28,6 +28,11 @@ Router.map ->
     waitOn: ->
       Meteor.subscribe 'students'
 
+  @route '/logout',
+    action: ->
+      Meteor.logout()
+      Router.go '/auth'
+
   @route '/vk', ->
     @response.writeHead 302, {
       'Location': 'http://vk.com/moduleok'

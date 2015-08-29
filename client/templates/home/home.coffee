@@ -9,8 +9,3 @@ Template.Home.helpers
       caption: 'Open navigation drawer by default'
     }
   ]
-
-Template.NavDrawerHeader.events
-  'click #switch-account-button': (event, tmpl) ->
-    Meteor.logout()
-    Router.go '/auth'
