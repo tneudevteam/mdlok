@@ -8,7 +8,7 @@
     {{#each modules}}
       <div id="{{id}}" class="mdl-tabs__panel mdl-grid {{#if _eq id "module0"}}is-active{{/if}}">
         {{#each subjects}}
-          {{> ModuleCard name=date score=score}}
+          {{> ModuleCard name=name score=score date=date weight=weight}}
         {{/each}}
       </div>
     {{/each}}
