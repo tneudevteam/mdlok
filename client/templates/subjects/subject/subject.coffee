@@ -1,5 +1,6 @@
 Template.Subject.onCreated ->
   @subject = new ReactiveVar false
+  Session.set 'appHeader', @data.name
 
 
 Template.Subject.onRendered ->

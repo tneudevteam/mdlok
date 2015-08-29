@@ -10,5 +10,4 @@ Template.Subjects.helpers
 Template.Subjects.events
   'click .subject-card': (event, tmpl) ->
     selectedSubject = tmpl.$(event.currentTarget).data('name')
-    Session.set 'appHeader', selectedSubject
     Router.go "/subject/#{selectedSubject}"

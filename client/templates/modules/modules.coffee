@@ -24,3 +24,9 @@ Template.Modules.helpers
     _.map modules, (module, index) ->
       module.id = "module#{index}"
       module
+
+
+Template.Modules.events
+  'click .subject-card': (event, tmpl) ->
+    selectedSubject = tmpl.$(event.currentTarget).data('name')
+    Router.go "/subject/#{selectedSubject}"
