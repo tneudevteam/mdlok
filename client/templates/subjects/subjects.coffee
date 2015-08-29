@@ -4,7 +4,8 @@ Template.Subjects.onCreated ->
 
 Template.Subjects.helpers
   subjects: ->
-    Students.findOne()?.semesters[0].subjects
+    semester = Students.findOne()?.selectedSemester
+    Students.findOne()?.semesters[semester].subjects
 
 
 Template.Subjects.events

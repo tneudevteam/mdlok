@@ -2,3 +2,6 @@
 @Groups = new Mongo.Collection 'groups'
 @Subjects = new Mongo.Collection 'subjects'
 @Modules = new Mongo.Collection 'modules'
+
+@Students.allow
+  update: -> yes

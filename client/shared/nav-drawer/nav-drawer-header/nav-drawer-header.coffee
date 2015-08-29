@@ -15,6 +15,8 @@ Template.NavDrawerHeader.events
   'click ul[for="semester-dropdown-button"] li': (event, tmpl) ->
     selectedSemester = tmpl.$(event.currentTarget).data('semester')
     if Meteor.userId()
-      Students.update {userId: Meteor.userId()}, {
-        selectedSemester: selectedSemester
+      studentsId = Students.findOne()._id
+      Students.update {_id: studentsId}, {
+        $set:
+          selectedSemester: selectedSemester
       }
