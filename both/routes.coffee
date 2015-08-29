@@ -40,14 +40,6 @@ Router.map ->
     @response.end()
   , {where: 'server'}
 
-  @route '/pidsluhano/:postId', ->
-    postId = @params.postId
-    @response.writeHead 302, {
-      Location: "https://vk.com/public71208622?w=wall-71208622_#{postId}"
-    }
-    @response.end()
-  , {where: 'server'}
-
 if not Meteor.isServer
   Router.onBeforeAction ->
     if not (Meteor.user() or Meteor.loggingIn())
