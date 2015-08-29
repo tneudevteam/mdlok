@@ -1,18 +1,17 @@
 <template name="NavDrawerHeader">
   <header class="nav-drawer-header">
-    <img src="images/user.jpg" class="nav-drawer-avatar">
-
     <span>{{name}}</span>
+    <span>{{group}}</span>
 
     <div class="nav-drawer-avatar-dropdown">
-      <span>{{group}}</span>
+      <span>Перший семестр</span>
 
       <div class="mdl-layout-spacer"></div>
-      <button id="switch-account-dropdown-button"
+      <button id="semester-dropdown-button"
               class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
         <i class="material-icons" role="presentation">arrow_drop_down</i>
       </button>
-      <ul for="switch-account-dropdown-button"
+      <ul for="semester-dropdown-button"
           class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect">
         <li class="mdl-menu__item">Перший семестр</li>
         <li class="mdl-menu__item">Другий семестр</li>
