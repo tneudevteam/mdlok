@@ -16,6 +16,13 @@ Router.map ->
     waitOn: ->
       Meteor.subscribe 'students'
 
+  @route '/subject/:name',
+    name: 'Subject'
+    data: ->
+      name: @params.name
+    waitOn: ->
+      Meteor.subscribe 'students'
+
   @route '/modules',
     name: 'Modules'
     waitOn: ->

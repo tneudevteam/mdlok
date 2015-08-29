@@ -1,0 +1,10 @@
+<template name="Subject">
+  <div class="subject-page mdl-cell mdl-cell--12-col mdl-shadow--4dp">
+    <h3>{{subject.name}}</h3>
+    <ul>
+      {{#each subject.modules}}
+        <li><strong>{{score}}</strong> - {{date}} ( <small>{{weight}}%</small> )</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

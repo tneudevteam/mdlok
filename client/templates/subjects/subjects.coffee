@@ -5,3 +5,4 @@ Template.Subjects.helpers
 
 Template.Subjects.events
   'click .subject-card': (event, tmpl) ->
+    Router.go "/subject/#{tmpl.$(event.currentTarget).data('name')}"
