@@ -1,3 +1,31 @@
-.overheared-post-card {
-  min-height: 0;
+@import "../../stylesheets/base.import.less";
+
+.overheared-block {
+
+  &-title {
+    min-height: 185px;
+    background-image: url('/images/overheared-tneu-logo.png');
+    background-position: 90% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .overheared-post-card {
+    border-radius: 2px;
+    cursor: pointer;
+    min-height: 0;
+    transition: box-shadow .2s;
+    max-height: 180px;
+
+    .post-metrics {
+      margin-top: 15px;
+
+      .post-metric {
+        margin-right: 15px;
+
+        i {
+          margin-right: 7px;
+        }
+      }
+    }
+  }
 }
