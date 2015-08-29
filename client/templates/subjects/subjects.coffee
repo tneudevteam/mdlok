@@ -1,3 +1,7 @@
+Template.Subjects.onCreated ->
+  Session.set 'appHeader', 'Предмети'
+
+
 Template.Subjects.helpers
   subjects: ->
     Students.findOne()?.semesters[0].subjects
@@ -5,4 +9,6 @@ Template.Subjects.helpers
 
 Template.Subjects.events
   'click .subject-card': (event, tmpl) ->
-    Router.go "/subject/#{tmpl.$(event.currentTarget).data('name')}"
+    selectedSubject = tmpl.$(event.currentTarget).data('name')
+    Session.set 'appHeader', selectedSubject
+    Router.go "/subject/#{selectedSubject}"

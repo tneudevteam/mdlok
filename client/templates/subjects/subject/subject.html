@@ -1,5 +1,4 @@
 <template name="Subject">
-  <h3 class="subject-title">{{subject.name}}</h3>
   {{#each subject.modules}}
     {{> SubjectCard name=date totalScore=score}}
   {{/each}}
