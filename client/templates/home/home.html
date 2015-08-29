@@ -1,8 +1,15 @@
 <template name="Home">
-  <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col mdl-grid mdl-color--indigo-500">
+  <div class="mdl-cell mdl-cell--6-col mdl-grid">
     {{#each overhearedFeed}}
-      <div class="overheared-post-card mdl-card mdl-shadow--2dpl mdl-cell mdl-cell--6-col">
-        <div class="mdl-card__supporting-text">{{text}}</div>
+      <div class="overheared-post-card mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-color--indigo-500">
+        <div class="mdl-card__supporting-text mdl-color-text--white">
+          {{text}}
+          <div class="post-metrics">
+            <span><i class="fa fa-calendar"></i> {{formatUnixTime date}}</span>
+            <span><i class="fa fa-comments"></i> {{comments}}</span>
+            <span><i class="fa fa-heart"></i> {{likes}}</span>
+          </div>
+        </div>
       </div>
     {{/each}}
   </div>

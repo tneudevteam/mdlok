@@ -1,3 +1,6 @@
+Template.registerHelper 'formatUnixTime', (date) ->
+  moment.unix(date).format('DD.MM.YYYY')
+
 Template.registerHelper 'scoreColorFor', (score) ->
   score = parseInt score
   switch
