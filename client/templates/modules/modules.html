@@ -5,12 +5,14 @@
         <a href="#{{id}}" class="mdl-tabs__tab {{#if _eq id "module0"}}is-active{{/if}}">{{name}}</a>
       {{/each}}
     </div>
-    {{#each modules}}
-      <div id="{{id}}" class="module-scores-list mdl-tabs__panel mdl-grid {{#if _eq id "module0"}}is-active{{/if}}">
-        {{#each subjects}}
-          {{> ModuleCard name=name score=score date=date weight=weight}}
-        {{/each}}
-      </div>
-    {{/each}}
+    {{#HammerTouchArea gestureMap=moduleGestures}}
+      {{#each modules}}
+        <div id="{{id}}" class="module-scores-list mdl-tabs__panel mdl-grid {{#if _eq id "module0"}}is-active{{/if}}">
+          {{#each subjects}}
+            {{> ModuleCard name=name score=score date=date weight=weight}}
+          {{/each}}
+        </div>
+      {{/each}}
+    {{/HammerTouchArea}}
   </div>
 </template>

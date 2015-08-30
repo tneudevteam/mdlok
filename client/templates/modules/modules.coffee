@@ -7,6 +7,18 @@ Template.Modules.helpers
   tabs: ->
     Template.instance().tabs.get()
 
+  moduleGestures: {
+    'swiperight .subject-card': ->
+      if notFirstTab = $('.mdl-tabs__tab').first().attr('href') isnt $('.mdl-tabs__tab.is-active').attr('href')
+        $('.mdl-tabs__tab.is-active').removeClass('is-active').prev().addClass('is-active')
+        $('.module-scores-list.is-active').removeClass('is-active').prev().addClass('is-active')
+
+    'swipeleft .subject-card': ->
+      if notLastTab = $('.mdl-tabs__tab').last().attr('href') isnt $('.mdl-tabs__tab.is-active').attr('href')
+        $('.mdl-tabs__tab.is-active').removeClass('is-active').next().addClass('is-active')
+        $('.module-scores-list.is-active').removeClass('is-active').next().addClass('is-active')
+  }
+
   modules: ->
     subjects = getSubjects Students.findOne()
     modules = []
