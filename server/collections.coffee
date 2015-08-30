@@ -1,2 +1,2 @@
 Meteor.publish 'students', ->
-  Students.find userId: @userId
+  Students.find {userId: @userId}, {credentials: 0}
