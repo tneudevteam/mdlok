@@ -1,6 +1,6 @@
 <template name="Modules">
   <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-    <div class="mdl-tabs__tab-bar">
+    <div class="mdl-tabs__tab-bar modules-tabs">
       {{#each tabs}}
         <a href="#{{id}}" class="mdl-tabs__tab {{#if _eq id "module0"}}is-active{{/if}}">{{name}}</a>
       {{/each}}

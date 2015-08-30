@@ -18,7 +18,7 @@ Template.Modules.helpers
         modules[index].subjects.push _.extend subject.modules[index], {name: subject.name}
 
     Template.instance().tabs.set _.map modules, (module, index) ->
-      name: "Модуль #{(index + 1)}"
+      name: "#{(index + 1)}"
       id: "module#{index}"
 
     _.map modules, (module, index) ->
