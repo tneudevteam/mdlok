@@ -21,9 +21,4 @@ Template.NavDrawer.helpers
       icon: 'swap_horiz'
       spaceBefore: true
     }
-    {
-      caption: 'Ми у ВК'
-      route: '/vk'
-      icon: 'people'
-    }
   ]

@@ -13,3 +13,6 @@ Template.Header.events
       Session.set 'loading', true
       Meteor.call "refresh", ->
         Session.set 'loading', false
+
+  'click ul[for=options-menu] li.vk-link': ->
+    window.open 'https://vk.com/moduleok', '_blank'

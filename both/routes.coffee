@@ -35,13 +35,6 @@ Router.map ->
       Meteor.logout()
       Router.go '/auth'
 
-  @route '/vk', ->
-    @response.writeHead 302, {
-      Location: 'https://vk.com/moduleok'
-    }
-    @response.end()
-  , {where: 'server'}
-
 if not Meteor.isServer
   Router.onBeforeAction ->
     if not (Meteor.user() or Meteor.loggingIn())
