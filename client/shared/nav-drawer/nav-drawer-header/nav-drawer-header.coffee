@@ -9,7 +9,7 @@ Template.NavDrawerHeader.helpers
     student = Students.findOne()
     if student
       student.group
-    else 'ГРУПА-23'
+    else 'ГРУПА'
 
   semester: ->
     student = Students.findOne()
