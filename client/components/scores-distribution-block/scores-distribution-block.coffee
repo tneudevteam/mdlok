@@ -11,12 +11,7 @@ Template.ScoresDistributionBlock.onRendered ->
       pie:
         enableMouseTracking: false
         dataLabels:
-          inside: true
-          distance: -60
-          format: '{point.y}'
-          style:
-            fontSize: '14px'
-            textShadow: '1px 1px 1px black'
+          format: '{point.name} - {point.y}'
     series: [
       {
         data: [
