@@ -25,6 +25,8 @@ Router.map ->
 
   @route '/modules',
     name: 'Modules'
+    data: ->
+      selectedModule: parseInt @params.hash
     waitOn: ->
       Meteor.subscribe 'students'
 

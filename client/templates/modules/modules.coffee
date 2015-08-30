@@ -3,6 +3,10 @@ Template.Modules.onCreated ->
   @tabs = new ReactiveVar false
 
 
+Template.Modules.onRendered ->
+  if @data.selectedModule
+    openModule @data.selectedModule
+
 Template.Modules.helpers
   tabs: ->
     Template.instance().tabs.get()
@@ -47,16 +51,20 @@ isModuleOpened = (position) ->
   else if position is 'last'
     openedModuleId is $('.mdl-tabs__tab').last().attr('href')
 
-openModule = (direction) ->
+openModule = (index) ->
   tabBar = $('.mdl-tabs__tab.is-active').removeClass('is-active')
   tabPanel = $('.module-scores-list.is-active').removeClass('is-active')
 
-  if direction is 'next'
-    tabBar = tabBar.next()
-    tabPanel = tabPanel.next()
-  else if direction is 'prev'
-    tabBar = tabBar.prev()
-    tabPanel = tabPanel.prev()
+  switch
+    when index is 'next'
+      tabBar = tabBar.next()
+      tabPanel = tabPanel.next()
+    when index is 'prev'
+      tabBar = tabBar.prev()
+      tabPanel = tabPanel.prev()
+    when _.isNumber index
+      tabBar = $(".mdl-tabs__tab[href=#module#{index}]")
+      tabPanel = $(".module-scores-list[id=module#{index}]")
 
   tabBar.addClass('is-active')
   tabPanel.addClass('is-active')
