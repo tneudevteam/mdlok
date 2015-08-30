@@ -6,7 +6,11 @@
       {{> sAlert}}
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid main-content">
-          {{> yield}}
+          {{#unless loading}}
+            {{> yield}}
+          {{else}}
+            {{> Loading}}
+          {{/unless}}
         </div>
       </main>
     </div>

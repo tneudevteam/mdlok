@@ -6,3 +6,6 @@ Template.Layout.helpers
     'swipeleft .mdl-layout__obfuscator': ->
       $('.mdl-layout__drawer-button').click()
   }
+
+  loading: ->
+    Session.get 'loading'

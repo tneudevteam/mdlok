@@ -5,12 +5,17 @@ Meteor.methods
     if apiResponse.success
       if not userRegistered credentials.login
         userId = registerUser _.extend credentials, {cookies: apiResponse.cookies}
-        insertStudent userId, apiResponse.student
+        insertStudent userId, apiResponse.student, credentials
         true
       else
         true
     else
       false
+
+  'refresh': ->
+    student = Students.findOne(userId: @userId)
+    apiResponse = getAPIResponse student.credentials
+    updateStudent @userId, apiResponse.student
 
 getAPIResponse = (credentials) ->
   try
@@ -30,11 +35,20 @@ registerUser = (credentials) ->
     profile:
       hash: credentials.cookies
 
-insertStudent = (userId, student) ->
+insertStudent = (userId, student, credentials) ->
   Students.insert(
     StudentAdapter(student).mergeSemesters()
                             .addAverageScore()
                             .withUserId(userId)
+                            .withCredentials(credentials)
                             .withSelectedSemester()
                             .get()
   )
+
+updateStudent = (userId, student) ->
+  Students.update {userId: userId}, {
+    $set:
+      name: student.name
+      group: student.group
+      semesters: [student.firstSemester, student.secondSemester]
+  }
