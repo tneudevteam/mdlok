@@ -27,3 +27,5 @@ Template.NavDrawerHeader.events
         $set:
           selectedSemester: selectedSemester
       }
+    # Close navigation drawer
+    $('.mdl-layout__drawer.is-visible ~ .mdl-layout__obfuscator').click()
