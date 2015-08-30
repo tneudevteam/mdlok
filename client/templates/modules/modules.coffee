@@ -9,16 +9,14 @@ Template.Modules.helpers
 
   moduleGestures: {
     'swiperight .subject-card': ->
-      if notFirstTab = $('.mdl-tabs__tab').first().attr('href') isnt $('.mdl-tabs__tab.is-active').attr('href')
-        $('.mdl-tabs__tab.is-active').removeClass('is-active').prev().addClass('is-active')
-        $('.module-scores-list.is-active').removeClass('is-active').prev().addClass('is-active')
+      unless isModuleOpened 'first'
+        openModule 'prev'
       else
-        $('.mdl-layout__drawer-button').click()
+        openNavDrawer()
 
     'swipeleft .subject-card': ->
-      if notLastTab = $('.mdl-tabs__tab').last().attr('href') isnt $('.mdl-tabs__tab.is-active').attr('href')
-        $('.mdl-tabs__tab.is-active').removeClass('is-active').next().addClass('is-active')
-        $('.module-scores-list.is-active').removeClass('is-active').next().addClass('is-active')
+      unless isModuleOpened 'last'
+        openModule 'next'
   }
 
   modules: ->
@@ -39,6 +37,29 @@ Template.Modules.helpers
       module.id = "module#{index}"
       module
 
+openNavDrawer = ->
+  $('.mdl-layout__drawer-button').click()
+
+isModuleOpened = (position) ->
+  openedModuleId = $('.mdl-tabs__tab.is-active').attr('href')
+  if position is 'first'
+    openedModuleId is $('.mdl-tabs__tab').first().attr('href')
+  else if position is 'last'
+    openedModuleId is $('.mdl-tabs__tab').last().attr('href')
+
+openModule = (direction) ->
+  tabBar = $('.mdl-tabs__tab.is-active').removeClass('is-active')
+  tabPanel = $('.module-scores-list.is-active').removeClass('is-active')
+
+  if direction is 'next'
+    tabBar = tabBar.next()
+    tabPanel = tabPanel.next()
+  else if direction is 'prev'
+    tabBar = tabBar.prev()
+    tabPanel = tabPanel.prev()
+
+  tabBar.addClass('is-active')
+  tabPanel.addClass('is-active')
 
 Template.Modules.events
   'click .subject-card': (event, tmpl) ->
