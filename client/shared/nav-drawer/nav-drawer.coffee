@@ -16,7 +16,7 @@ Template.NavDrawer.helpers
       icon: 'subject'
     }
     {
-      caption: 'Змінити аккаунт'
+      caption: 'Вийти'
       route: '/logout'
       icon: 'swap_horiz'
       spaceBefore: true
