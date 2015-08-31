@@ -22,8 +22,8 @@ doAuth = (tmpl) ->
   credentials = getCredentials tmpl
   Meteor.call 'auth', credentials, (err, result) ->
     if result
-      Meteor.loginWithPassword credentials.login, credentials.password
-      Router.go '/'
+      Meteor.loginWithPassword credentials.login, credentials.password, (error) ->
+        Router.go '/'
     else
       sAlert.error 'Неправильний логін або пароль'
       tmpl.loggingIn.set false
