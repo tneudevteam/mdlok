@@ -1,4 +1,4 @@
-Template.ScoresDistributionBlock.onCreated ->
+Template.ScoresDistributionBlock.onRendered ->
   chartData = [
     {name: 'П\'ять', y: 0, color: 'rgb(67,160,71)'}
     {name: 'Чотири', y: 0, color: 'rgb(124,179,66)'}
@@ -23,9 +23,6 @@ Template.ScoresDistributionBlock.onCreated ->
     if scoreData.y is 0
       delete chartData[index]
 
-  @chartData = new ReactiveVar chartData
-
-Template.ScoresDistributionBlock.onRendered ->
   $('#scores-distribution-chart').highcharts
     chart:
       type: 'pie'
@@ -44,6 +41,6 @@ Template.ScoresDistributionBlock.onRendered ->
         showInLegend: true
     series: [
       {
-        data: Template.instance().chartData.get()
+        data: chartData
       }
     ]
