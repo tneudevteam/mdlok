@@ -34,11 +34,14 @@ Template.ScoresDistributionBlock.onRendered ->
       enabled: false
     title:
       text: null
+    legend:
+      labelFormat: '{name} - {y}'
     plotOptions:
       pie:
         enableMouseTracking: false
         dataLabels:
-          format: '{point.name} - {point.y}'
+          enabled: false
+        showInLegend: true
     series: [
       {
         data: Template.instance().chartData.get()
