@@ -24,5 +24,4 @@ fortawesome:fontawesome
 fongandrew:spacebars-helpers
 goltfisch:hotjar
 okgrow:iron-router-autoscroll
-appcache
-webapp
+meteorhacks:fast-render

@@ -2,33 +2,27 @@ Router.map ->
   @configure
     layoutTemplate: 'Layout'
     loadingTemplate: 'Loading'
+    waitOn: ->
+      [Meteor.subscribe 'students']
 
   @route '/',
     name: 'Home'
-    waitOn: ->
-      Meteor.subscribe 'students'
 
   @route '/auth',
     name: 'Auth'
 
   @route '/subjects',
     name: 'Subjects'
-    waitOn: ->
-      Meteor.subscribe 'students'
 
   @route '/subject/:name',
     name: 'Subject'
     data: ->
       name: @params.name
-    waitOn: ->
-      Meteor.subscribe 'students'
 
   @route '/modules',
     name: 'Modules'
     data: ->
       selectedModule: parseInt @params.hash
-    waitOn: ->
-      Meteor.subscribe 'students'
 
   @route '/logout',
     action: ->
