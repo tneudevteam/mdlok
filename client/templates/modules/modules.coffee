@@ -12,13 +12,13 @@ Template.Modules.helpers
     Template.instance().tabs.get()
 
   moduleGestures: {
-    'swiperight .subject-card': ->
+    'swiperight .module-card': ->
       unless isModuleOpened 'first'
         openModule 'prev'
       else
         openNavDrawer()
 
-    'swipeleft .subject-card': ->
+    'swipeleft .module-card': ->
       unless isModuleOpened 'last'
         openModule 'next'
   }
