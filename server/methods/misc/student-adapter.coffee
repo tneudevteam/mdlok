@@ -19,9 +19,8 @@
     student.selectedSemester = 0
     @
 
-  withCredentials: (credentials) ->
-    delete credentials.cookies
-    student.credentials = credentials
+  withPhpSessId: (phpsessid) ->
+    student.phpsessid = phpsessid
     @
 
   get: ->

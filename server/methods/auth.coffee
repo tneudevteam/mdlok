@@ -1,11 +1,11 @@
 Meteor.methods
   'auth': (credentials) ->
-    apiResponse = getAPIResponse credentials
+    loginResponse = getLoginResponse credentials
 
-    if apiResponse.success
+    if loginResponse.success
       if not userRegistered credentials.login
-        userId = registerUser _.extend credentials, {cookies: apiResponse.cookies}
-        insertStudent userId, apiResponse.student, credentials
+        userId = registerUser credentials
+        insertStudent userId, loginResponse
         true
       else
         true
@@ -14,13 +14,23 @@ Meteor.methods
 
   'refresh': ->
     student = Students.findOne(userId: @userId)
-    apiResponse = getAPIResponse student.credentials
-    updateStudent @userId, apiResponse.student
+    console.log student.phpsessid
+    refreshResponse = getRefreshResponse student.phpsessid
+    console.log refreshResponse
+    updateStudent @userId, refreshResponse.student
 
-getAPIResponse = (credentials) ->
+getLoginResponse = (credentials) ->
   try
-    apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScores?v=2" +
-        "&login=#{credentials.login}&password=#{credentials.password}"
+    apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScoresByPassword?" +
+        "login=#{credentials.login}&password=#{credentials.password}"
+    JSON.parse apiResponse.content
+  catch e
+    success: false
+
+getRefreshResponse = (phpsessid) ->
+  try
+    apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScoresByHash?" +
+        "hash=#{phpsessid}"
     JSON.parse apiResponse.content
   catch e
     success: false
@@ -32,15 +42,13 @@ registerUser = (credentials) ->
   Accounts.createUser
     username: credentials.login
     password: credentials.password
-    profile:
-      hash: credentials.cookies
 
-insertStudent = (userId, student, credentials) ->
+insertStudent = (userId, loginResponse) ->
   Students.insert(
-    StudentAdapter(student).mergeSemesters()
+    StudentAdapter(loginResponse.student).mergeSemesters()
                             .addAverageScore()
                             .withUserId(userId)
-                            .withCredentials(credentials)
+                            .withPhpSessId(loginResponse.phpsessid)
                             .withSelectedSemester()
                             .get()
   )
