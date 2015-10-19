@@ -1,5 +1,9 @@
 <template name="Subjects">
-  {{#each subjects}}
-    {{> SubjectCard name=name totalScore=totalScore}}
-  {{/each}}
+  {{#if subjects}}
+    {{#each subjects}}
+      {{> SubjectCard name=name totalScore=totalScore}}
+    {{/each}}
+  {{else}}
+    {{> NoItems}}
+  {{/if}}
 </template>

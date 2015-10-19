@@ -1,18 +1,23 @@
 <template name="Modules">
-  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-    <div class="mdl-tabs__tab-bar modules-tabs">
-      {{#each tabs}}
-        <a href="#{{id}}" class="mdl-tabs__tab {{#if _eq id "module0"}}is-active{{/if}}">{{name}}</a>
-      {{/each}}
+  {{#if modules}}
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+      <div class="mdl-tabs__tab-bar modules-tabs">
+        {{#each tabs}}
+          <a href="#{{id}}" class="mdl-tabs__tab {{#if _eq id "module0"}}is-active{{/if}}">{{name}}</a>
+        {{/each}}
+      </div>
+      {{#HammerTouchArea gestureMap=moduleGestures}}
+        {{#each modules}}
+          <div id="{{id}}"
+               class="module-scores-list mdl-tabs__panel mdl-grid {{#if _eq id "module0"}}is-active{{/if}}">
+            {{#each subjects}}
+              {{> ModuleCard name=name score=score date=date weight=weight}}
+            {{/each}}
+          </div>
+        {{/each}}
+      {{/HammerTouchArea}}
     </div>
-    {{#HammerTouchArea gestureMap=moduleGestures}}
-      {{#each modules}}
-        <div id="{{id}}" class="module-scores-list mdl-tabs__panel mdl-grid {{#if _eq id "module0"}}is-active{{/if}}">
-          {{#each subjects}}
-            {{> ModuleCard name=name score=score date=date weight=weight}}
-          {{/each}}
-        </div>
-      {{/each}}
-    {{/HammerTouchArea}}
-  </div>
+  {{else}}
+    {{> NoItems}}
+  {{/if}}
 </template>
