@@ -1,4 +1,9 @@
 <template name="Home">
-  {{> OverhearedFeed width="mdl-cell--8-col"}}
-  {{> ScoresDistributionBlock width="mdl-cell--4-col"}}
+  {{#if isPhone}}
+    {{> ScoresDistributionBlock width="mdl-cell--4-col"}}
+    {{> OverhearedFeed width="mdl-cell--8-col"}}
+  {{else}}
+    {{> OverhearedFeed width="mdl-cell--8-col"}}
+    {{> ScoresDistributionBlock width="mdl-cell--4-col"}}
+  {{/if}}
 </template>

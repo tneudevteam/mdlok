@@ -4,6 +4,7 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+meteor-platform
 coffeescript
 iron:router
 accounts-password
@@ -24,6 +25,8 @@ fongandrew:spacebars-helpers
 goltfisch:hotjar
 meteorhacks:fast-render
 appcache
+launch-screen
+mystor:device-detection
 standard-minifiers
 meteor-base
 mobile-experience
