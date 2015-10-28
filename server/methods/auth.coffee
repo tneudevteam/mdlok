@@ -16,8 +16,12 @@ Meteor.methods
     student = Students.findOne(userId: @userId)
     console.log student.phpsessid
     refreshResponse = getRefreshResponse student.phpsessid
-    console.log refreshResponse
-    updateStudent @userId, refreshResponse.student
+    if refreshResponse.success is false
+      # Logout user to get a new token
+      Meteor.users.remove {_id: @userId}
+      Students.remove {userId: @userId}
+    else
+      updateStudent @userId, refreshResponse.student
 
 getLoginResponse = (credentials) ->
   try
