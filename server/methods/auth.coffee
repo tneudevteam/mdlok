@@ -14,7 +14,6 @@ Meteor.methods
 
   'refresh': ->
     student = Students.findOne(userId: @userId)
-    console.log student.phpsessid
     refreshResponse = getRefreshResponse student.phpsessid
     if refreshResponse.success is false
       # Logout user to get a new token
