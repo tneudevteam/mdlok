@@ -3,13 +3,13 @@ Template.NavDrawerHeader.helpers
     student = Students.findOne()
     if student
       student.name.split(' ')[0..1].join(' ')
-    else 'Прізвище Ім\'я'
+    else '░░░░░░░░░ ░░░░░░'
 
   group: ->
     student = Students.findOne()
     if student
       student.group
-    else 'ГРУПА'
+    else '░░░░-░░'
 
   semester: ->
     student = Students.findOne()

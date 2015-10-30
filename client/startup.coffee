@@ -7,3 +7,5 @@ Meteor.startup ->
     onRouteClose: true
     stack: true
     offset: 50
+
+  console.log window.location
