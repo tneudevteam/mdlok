@@ -1,6 +1,10 @@
 Template.Subject.onCreated ->
   @subject = new ReactiveVar false
   Session.set 'appHeader', @data.name
+  Session.set 'displayBackButton', yes
+
+Template.Subject.onDestroyed ->
+  Session.set 'displayBackButton', no
 
 
 Template.Subject.onRendered ->

@@ -1,6 +1,10 @@
 Template.Modules.onCreated ->
   Session.set 'appHeader', 'Модулі'
+  Session.set 'displayBackButton', yes
   @tabs = new ReactiveVar false
+
+Template.Modules.onDestroyed ->
+  Session.set 'displayBackButton', no
 
 
 Template.Modules.onRendered ->

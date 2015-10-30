@@ -5,6 +5,8 @@ Template.Header.onCreated ->
 Template.Header.helpers
   appHeader: ->
     Session.get 'appHeader'
+  displayBackButton: ->
+    Session.get 'displayBackButton'
 
 
 Template.Header.events
@@ -13,6 +15,9 @@ Template.Header.events
       Session.set 'loading', true
       Meteor.call "refresh", ->
         Session.set 'loading', false
+
+  'click #back-button': ->
+    history.back()
 
   'click ul[for=options-menu] li.vk-link': ->
     window.open 'https://vk.com/moduleok', '_blank'
