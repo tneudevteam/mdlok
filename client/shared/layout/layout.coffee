@@ -10,3 +10,6 @@ Template.Layout.helpers
 
   loading: ->
     Session.get 'loading'
+
+  renderNavDrawer: ->
+    not Template.instance().data.dontRenderNavDrawer

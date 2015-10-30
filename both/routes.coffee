@@ -2,6 +2,8 @@ Router.map ->
   @configure
     layoutTemplate: 'Layout'
     loadingTemplate: 'Loading'
+    data: ->
+      dontRenderNavDrawer: no
     waitOn: ->
       [Meteor.subscribe 'students']
 
@@ -10,6 +12,8 @@ Router.map ->
 
   @route '/auth',
     name: 'Auth'
+    data: ->
+      dontRenderNavDrawer: yes
 
   @route '/subjects',
     name: 'Subjects'
