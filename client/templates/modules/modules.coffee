@@ -35,7 +35,11 @@ Template.Modules.helpers
         if not modules[index]
           modules[index] =
             subjects: []
-        modules[index].subjects.push _.extend subject.modules[index], {name: subject.name}
+        subjectElement = _.extend subject.modules[index], {
+          name: subject.name
+          type: subject.controlType
+        }
+        modules[index].subjects.push subjectElement
 
     Template.instance().tabs.set _.map modules, (module, index) ->
       name: "#{(index + 1)}"
@@ -74,6 +78,7 @@ openModule = (index) ->
   tabPanel.addClass('is-active')
 
 Template.Modules.events
-  'click .subject-card': (event, tmpl) ->
+  'click .module-card ': (event, tmpl) ->
     selectedSubject = tmpl.$(event.currentTarget).data('name')
-    Router.go "/subject/#{selectedSubject}"
+    selectedSubjectType = tmpl.$(event.currentTarget).data('type')
+    Router.go "/subject/#{selectedSubject}@#{selectedSubjectType}"

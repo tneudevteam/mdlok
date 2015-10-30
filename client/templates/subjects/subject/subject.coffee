@@ -8,12 +8,12 @@ Template.Subject.onDestroyed ->
 
 
 Template.Subject.onRendered ->
-  console.log @data
   for subject in getSubjects Students.findOne()
     if (subject.name is @data.name and subject.controlType is @data.type)
       for module, index in subject.modules
         module.name = "Модуль #{(index + 1)}"
       @subject.set subject
+
 
 Template.Subject.helpers
   subject: ->
