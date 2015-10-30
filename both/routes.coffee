@@ -6,6 +6,13 @@ Router.map ->
       dontRenderNavDrawer: no
     waitOn: ->
       [Meteor.subscribe 'students']
+    # <Route change animation>
+    onBeforeAction: ->
+      $('main').hide()
+      @next()
+    onAfterAction: ->
+      $('main').velocity('transition.slideRightIn', 1000)
+    # </Route change animation>
 
   @route '/',
     name: 'Home'
