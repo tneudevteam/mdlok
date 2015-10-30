@@ -10,4 +10,5 @@ Template.Subjects.helpers
 Template.Subjects.events
   'click .subject-card': (event, tmpl) ->
     selectedSubject = tmpl.$(event.currentTarget).data('name')
-    Router.go "/subject/#{selectedSubject}"
+    selectedSubjectType = tmpl.$(event.currentTarget).data('type')
+    Router.go "/subject/#{selectedSubject}@#{selectedSubjectType}"

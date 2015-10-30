@@ -14,10 +14,11 @@ Router.map ->
   @route '/subjects',
     name: 'Subjects'
 
-  @route '/subject/:name',
+  @route '/subject/:name@:type',
     name: 'Subject'
     data: ->
       name: @params.name
+      type: @params.type
 
   @route '/modules',
     name: 'Modules'
