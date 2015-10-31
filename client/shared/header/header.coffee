@@ -18,6 +18,3 @@ Template.Header.events
 
   'click #back-button': ->
     history.back()
-
-#  'click ul[for=options-menu] li.vk-link': ->
-#    window.open 'https://vk.com/moduleok', '_blank'
