@@ -1,8 +1,8 @@
 <template name="Layout">
   {{#HammerTouchArea gestureMap=globalGestures}}
-    <div class="main-layout mdl-layout mdl-js-layout {{#if renderNavDrawer}}mdl-layout--fixed-drawer{{/if}} mdl-layout--fixed-header">
+    <div class="main-layout mdl-layout mdl-js-layout {{#if currentUser}}mdl-layout--fixed-drawer{{/if}} mdl-layout--fixed-header">
       {{> Header}}
-      {{#if renderNavDrawer}}
+      {{#if currentUser}}
         {{> NavDrawer}}
       {{/if}}
       {{> sAlert}}
