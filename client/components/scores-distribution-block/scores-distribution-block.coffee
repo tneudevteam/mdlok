@@ -1,7 +1,6 @@
 Template.ScoresDistributionBlock.onRendered ->
   windowResizeInterval = Meteor.setInterval =>
     $(window).resize()
-    console.log '.'
     Meteor.setTimeout ->
       Meteor.clearInterval windowResizeInterval
     , 1100
