@@ -1,10 +1,18 @@
 <template name="Layout">
   {{#HammerTouchArea gestureMap=globalGestures}}
-    <div class="main-layout mdl-layout mdl-js-layout {{#if currentUser}}mdl-layout--fixed-drawer{{/if}} mdl-layout--fixed-header">
+    <div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-header
+    {{#if isPhone}} mdl-layout--fixed-drawer{{else}}{{#if currentUser}}mdl-layout--fixed-drawer{{/if}}{{/if}}">
+
       {{> Header}}
-      {{#if currentUser}}
+
+      {{#if isPhone}}
         {{> NavDrawer}}
+      {{else}}
+        {{#if currentUser}}
+          {{> NavDrawer}}
+        {{/if}}
       {{/if}}
+
       {{> sAlert}}
       <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-grid main-content">
