@@ -1,7 +1,6 @@
 Template.NavDrawerNavigation.onRendered ->
-  Meteor.call 'getStudentsCount', (err, result) ->
-    studentsCount = result
-    @$('.students-counter .inner-text').text "Нас вже #{studentsCount}"
+  studentsCount = Counts.get('studentsCount')
+  @$('.students-counter .inner-text').text "Нас вже #{studentsCount}"
 
 Template.NavDrawerNavigation.events
   'click .mdl-navigation__link': (event, tmpl) ->

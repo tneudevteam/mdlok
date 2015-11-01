@@ -3,7 +3,7 @@ Router.map ->
     layoutTemplate: 'Layout'
     loadingTemplate: 'Loading'
     waitOn: ->
-      [Meteor.subscribe 'students']
+      [Meteor.subscribe('students')]
     # <Route change animation>
     onBeforeAction: ->
       $('main').hide()
