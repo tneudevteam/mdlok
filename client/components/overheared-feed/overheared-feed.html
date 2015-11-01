@@ -17,11 +17,20 @@
       </div>
     {{/each}}
     <div class="mdl-card__actions mdl-card--border mdl-color--blue-grey-300">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white"
-         href="https://vk.com/public71208622"
-         target="_blank">
-        Читати далі...
-      </a>
+      {{#if isCordova}}
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white"
+           href="#"
+           onclick="window.open('https://vk.com/public71208622', '_system');"
+           target="_blank">
+          Читати далі...
+        </a>
+      {{else}}
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white"
+           href="https://vk.com/public71208622"
+           target="_blank">
+          Читати далі...
+        </a>
+      {{/if}}
     </div>
   </div>
 </template>

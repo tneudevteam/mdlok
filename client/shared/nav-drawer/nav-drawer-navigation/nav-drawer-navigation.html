@@ -2,9 +2,9 @@
   <nav class="nav-drawer-navigation mdl-navigation mdl-color--grey-50">
     {{#each this}}
       {{#if spaceBefore}}<div class="mdl-layout-spacer"></div>{{/if}}
-      <a class="mdl-navigation__link" href="{{route}}">
+      <a class="mdl-navigation__link {{class}}" href="{{route}}">
         <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">{{icon}}</i>
-        <span class="mdl-color-text--blue-grey-700">{{caption}}</span>
+        <span class="mdl-color-text--blue-grey-700 inner-text">{{caption}}</span>
       </a>
     {{/each}}
   </nav>

@@ -4,5 +4,7 @@ Template.OverhearedFeed.onCreated ->
     @overhearedFeed.set result
 
 Template.OverhearedFeed.helpers
-  'overhearedFeed': ->
+  overhearedFeed: ->
     Template.instance().overhearedFeed.get()
+  isCordova: ->
+    Meteor.isCordova

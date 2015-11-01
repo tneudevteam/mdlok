@@ -16,6 +16,12 @@ Template.NavDrawer.helpers
       icon: 'subject'
     }
     {
+      caption: 'Нас вже ░'
+      route: ''
+      class: 'students-counter'
+      icon: 'supervisor_account'
+    }
+    {
       caption: 'Вийти'
       route: '/logout'
       icon: 'swap_horiz'
