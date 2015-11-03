@@ -1,0 +1,15 @@
+.last-score-cards {
+  .last-score-card {
+    @media (min-width: 840px) {
+      &.mdl-cell--4-col-desktop {
+        width: ~"calc(33.3333333333% - 20px)";
+      }
+    }
+    @media (max-width: 839px) and (min-width: 480px) {
+      &.mdl-cell {
+        margin: 8px;
+        width: ~"calc(50% - 20px)";
+      }
+    }
+  }
+}

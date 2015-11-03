@@ -5,6 +5,24 @@
   else
     student?.semesters[semester].subjects
 
+@getLastModules = (student) ->
+  _.chain(getSubjects(student)
+  ).map((subject) ->
+     getLastModule subject
+  ).filter((module) ->
+    module.score > 0
+  ).sortBy((module) ->
+    -moment(module.date, "DD.MM.YY").unix()
+  ).first(3).value()
+
+@getLastModule = (subject) ->
+  lastModuleIndex = subject.modules.length - 1
+  while subject.modules[lastModuleIndex] isnt 0 and lastModuleIndex > 0
+    lastModuleIndex--
+  _.extend subject.modules[lastModuleIndex], {
+    subjectName: subject.name
+    moduleName: "Модуль #{(lastModuleIndex + 1)}"
+  }
 
 Template.registerHelper 'formatUnixTime', (date) ->
   moment.unix(date).format('DD.MM.YYYY')
