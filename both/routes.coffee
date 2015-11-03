@@ -6,7 +6,8 @@ Router.map ->
       [Meteor.subscribe('students')]
     # <Route change animation>
     onBeforeAction: ->
-      $('main').hide()
+      if @route.getName() isnt 'Auth'
+        $('main').hide()
       @next()
     onAfterAction: ->
       $('main').velocity('transition.slideRightIn', 1000)
