@@ -1,5 +1,7 @@
 Template.LastModulesBlock.onCreated ->
-  @lastModules = getLastModules Students.findOne()
+  Tracker.autorun =>
+    student = Students.findOne()
+    @lastModules = getLastModules student
 
 Template.LastModulesBlock.helpers
   lastModules: ->

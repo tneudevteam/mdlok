@@ -1,11 +1,9 @@
-Template.ScoresDistributionBlock.onRendered ->
-  windowResizeInterval = Meteor.setInterval =>
-    $(window).resize()
-    Meteor.setTimeout ->
-      Meteor.clearInterval windowResizeInterval
-    , 1100
-  , 1
+Template.ScoresDistributionBlock.helpers
+  averageScore: ->
+    Students.findOne().averageScore
 
+
+Template.ScoresDistributionBlock.onRendered ->
   Tracker.autorun =>
     chartData = [
       {name: 'П\'ять', y: 0, color: 'rgb(67,160,71)'}
