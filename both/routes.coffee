@@ -4,14 +4,6 @@ Router.map ->
     loadingTemplate: 'Loading'
     waitOn: ->
       [Meteor.subscribe('students')]
-    # <Route change animation>
-    onBeforeAction: ->
-      if @route.getName() isnt 'Auth'
-        $('main').hide()
-      @next()
-    onAfterAction: ->
-      $('main').velocity('transition.slideRightIn', 1000)
-    # </Route change animation>
 
   @route '/',
     name: 'Home'

@@ -24,7 +24,6 @@ doAuth = (tmpl) ->
     if result
       Meteor.loginWithPassword credentials.login, credentials.password, (error) ->
         Router.go '/'
-        window.location.reload()
     else
       sAlert.error 'Неправильний логін або пароль'
       tmpl.loggingIn.set false

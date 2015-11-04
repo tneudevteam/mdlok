@@ -9,6 +9,4 @@ Meteor.startup ->
     offset: 50
 
   if Meteor.user()
-    Session.set 'loading', true
-    Meteor.call "refresh", ->
-      Session.set 'loading', false
+    Meteor.call 'refresh', ->
