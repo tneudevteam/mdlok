@@ -1,6 +1,6 @@
 Template.ScoresDistributionBlock.helpers
   averageScore: ->
-    Students.findOne().averageScore
+    Math.round Students.findOne().averageScore
 
 
 Template.ScoresDistributionBlock.onRendered ->
