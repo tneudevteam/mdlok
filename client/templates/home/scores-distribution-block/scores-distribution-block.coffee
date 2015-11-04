@@ -47,6 +47,9 @@ Template.ScoresDistributionBlock.onRendered ->
           dataLabels:
             enabled: false
           showInLegend: true
+          point:
+            events:
+              legendItemClick: -> false
       series: [
         {
           data: chartData

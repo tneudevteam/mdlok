@@ -43,3 +43,5 @@ okgrow:router-autoscroll
 velocityjs:velocityjs
 meteorhacks:fast-render
 tmeasday:publish-counts
+meteorhacks:kadira
+raix:handlebar-helpers
