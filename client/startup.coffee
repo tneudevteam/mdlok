@@ -10,3 +10,6 @@ Meteor.startup ->
 
   if Meteor.user()
     Meteor.call 'refresh', ->
+
+  if window.loation.href.indexOf('mdlk.ml') > -1
+    window.location.href  = "http://modulok.ml"
