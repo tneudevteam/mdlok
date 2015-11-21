@@ -1,5 +1,5 @@
 Meteor.methods
-  'auth': (credentials) ->
+  auth: (credentials) ->
     loginResponse = getLoginResponse credentials
 
     if loginResponse.success
@@ -12,7 +12,7 @@ Meteor.methods
     else
       false
 
-  'refresh': ->
+  refresh: ->
     student = Students.findOne(userId: @userId)
     refreshResponse = getRefreshResponse student.phpsessid
     if refreshResponse.success is false

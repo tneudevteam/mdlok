@@ -2,3 +2,7 @@
 *.iml
 *.db
 *.keystore
+mdlk.pem
+mup.json
+settings.json
+/server/lastfm-to-vk-status.coffee

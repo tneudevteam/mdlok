@@ -14,6 +14,9 @@ Router.map ->
   @route '/subjects',
     name: 'Subjects'
 
+  @route '/rating',
+    name: 'Rating'
+
   @route '/subject/:name@:type',
     name: 'Subject'
     data: ->
