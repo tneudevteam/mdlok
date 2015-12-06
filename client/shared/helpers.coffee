@@ -19,6 +19,7 @@
   lastModuleIndex = subject.modules.length - 1
 
   for i in [lastModuleIndex..0]
+    console.log i
     if subject.modules[i].score is 0 and lastModuleIndex > 0
       lastModuleIndex--
 
