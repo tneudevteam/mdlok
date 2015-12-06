@@ -17,8 +17,11 @@
 
 @getLastModule = (subject) ->
   lastModuleIndex = subject.modules.length - 1
-  while subject.modules[lastModuleIndex] isnt 0 and lastModuleIndex > 0
-    lastModuleIndex--
+
+  for i in [lastModuleIndex..0]
+    if subject.modules[i].score is 0 and lastModuleIndex > 0
+      lastModuleIndex--
+
   _.extend subject.modules[lastModuleIndex], {
     subjectName: subject.name
     moduleName: "Модуль #{(lastModuleIndex + 1)}"
