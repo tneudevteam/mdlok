@@ -1,29 +1,24 @@
 @StudentAdapter = (student) ->
-  mergeSemesters: ->
+  withUserId: (userId) ->
+    student.userId = userId
+    @
+
+  withSessionId: (phpsessid) ->
+    student.phpsessid = phpsessid
+    @
+
+  withWeirdCookie: (weirdCookie) ->
+    student.weirdCookie = weirdCookie
+    @
+
+  get: ->
     student.semesters = []
     student.semesters.push student.firstSemester
     student.semesters.push student.secondSemester
     delete student.firstSemester
     delete student.secondSemester
-    @
-
-  addAverageScore: ->
     student.averageScore = getOverAllAverageScore student
-    @
-
-  withUserId: (userId) ->
-    student.userId = userId
-    @
-
-  withSelectedSemester: ->
     student.selectedSemester = 0
-    @
-
-  withPhpSessId: (phpsessid) ->
-    student.phpsessid = phpsessid
-    @
-
-  get: ->
     student
 
 getOverAllAverageScore = (student) ->

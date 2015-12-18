@@ -8,8 +8,8 @@ Meteor.startup ->
     stack: true
     offset: 50
 
-  if Meteor.user()
-    Meteor.call 'refresh', ->
+#  if Meteor.user()
+#    Meteor.call 'refresh', ->
 
   if window.location.href.indexOf('mdlk.ml') > -1
     window.location.href  = "http://modulok.ml"

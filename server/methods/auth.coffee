@@ -14,13 +14,16 @@ Meteor.methods
 
   refresh: ->
     student = Students.findOne(userId: @userId)
-    refreshResponse = getRefreshResponse student.phpsessid
-    if refreshResponse.success is false
-      # Logout user to get a new token
+    if student.phpsessid is null
       Meteor.users.remove {_id: @userId}
-      Students.remove {userId: @userId}
     else
-      updateStudent @userId, refreshResponse.student
+      refreshResponse = getRefreshResponse student.phpsessid
+      if refreshResponse.success is false
+        # Logout user to get a new token
+        Meteor.users.remove {_id: @userId}
+         Students.remove {userId: @userId}
+      else
+        updateStudent @userId, refreshResponse
 
 getLoginResponse = (credentials) ->
   try
@@ -30,10 +33,10 @@ getLoginResponse = (credentials) ->
   catch e
     success: false
 
-getRefreshResponse = (phpsessid) ->
+getRefreshResponse = (phpsessid, weirdCookie) ->
   try
     apiResponse = HTTP.get "https://moduleok.appspot.com/api/getScoresByHash?" +
-        "hash=#{phpsessid}"
+        "hash=#{phpsessid}&weirdCookie=#{encodeURIComponent(weirdCookie)}"
     JSON.parse apiResponse.content
   catch e
     success: false
@@ -47,19 +50,13 @@ registerUser = (credentials) ->
     password: credentials.password
 
 insertStudent = (userId, loginResponse) ->
-  Students.insert(
-    StudentAdapter(loginResponse.student).mergeSemesters()
-                            .addAverageScore()
-                            .withUserId(userId)
-                            .withPhpSessId(loginResponse.phpsessid)
-                            .withSelectedSemester()
-                            .get()
-  )
+  student = StudentAdapter(loginResponse.student).withUserId(userId)
+  .withWeirdCookie(loginResponse.$804c27b4e9d8b5a3183e7ab890c2d8f3)
+  .withSessionId(loginResponse.phpsessid).get()
+  Students.insert student
 
-updateStudent = (userId, student) ->
-  Students.update {userId: userId}, {
-    $set:
-      name: student.name
-      group: student.group
-      semesters: [student.firstSemester, student.secondSemester]
-  }
+updateStudent = (userId, refreshResponse) ->
+  oldStudent = Students.findOne {userId: userId}
+  student = StudentAdapter(refreshResponse.student).withWeirdCookie(oldStudent.weirdCookie)
+  .withUserId(userId).withSessionId(oldStudent.phpsessid).get()
+  Students.update {userId: userId}, student
