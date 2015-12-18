@@ -3,7 +3,7 @@ Router.map ->
     layoutTemplate: 'Layout'
     loadingTemplate: 'Loading'
     waitOn: ->
-      [Meteor.subscribe('students')]
+      [Meteor.subscribe('students'), Meteor.subscribe('overhearedFeed')]
 
   @route '/',
     name: 'Home'

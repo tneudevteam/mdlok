@@ -5,3 +5,6 @@ Meteor.publish 'students', ->
       phpsessid: 0
       weirdCookie: 0
   }
+
+Meteor.publish 'overhearedFeed', ->
+  OverhearedFeed.find()
