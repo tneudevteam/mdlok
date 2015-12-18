@@ -21,7 +21,7 @@ Meteor.methods
       if refreshResponse.success is false
         # Logout user to get a new token
         Meteor.users.remove {_id: @userId}
-         Students.remove {userId: @userId}
+        Students.remove {userId: @userId}
       else
         updateStudent @userId, refreshResponse
 
