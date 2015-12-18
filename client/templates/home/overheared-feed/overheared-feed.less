@@ -24,8 +24,15 @@
     .post-metrics {
       margin-top: 15px;
 
+      .open-overheared-post {
+        &:hover .post-metric {
+          opacity: .75;
+        }
+      }
+
       .post-metric {
         margin-right: 15px;
+        .transition(opacity .1s);
 
         &.comments, &.likes {
           float: right;

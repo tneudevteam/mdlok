@@ -10,8 +10,12 @@
           {{text}}
           <div class="post-metrics mdl-color-text--grey-700">
             <span class="post-metric date"><i class="fa fa-calendar"></i>{{formatUnixTime date}}</span>
-            <span class="post-metric likes"><i class="fa fa-heart"></i>{{likes}}</span>
-            <span class="post-metric comments"><i class="fa fa-comments"></i>{{comments}}</span>
+            <a href="https://vk.com/public71208622?w=wall-71208622_{{id}}"
+               class="mdl-color-text--grey-700 open-overheared-post"
+               target="_blank">
+              <span class="post-metric likes"><i class="fa fa-heart"></i>{{likes}}</span>
+              <span class="post-metric comments"><i class="fa fa-comments"></i>{{comments}}</span>
+            </a>
           </div>
         </div>
       </div>
