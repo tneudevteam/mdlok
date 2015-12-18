@@ -3,4 +3,5 @@ Meteor.publish 'students', ->
   Students.find {userId: @userId}, {
     fields:
       phpsessid: 0
+      weirdCookie: 0
   }
