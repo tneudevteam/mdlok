@@ -1,3 +1,3 @@
 Template.OverhearedFeed.helpers
   overhearedFeed: ->
-    OverhearedFeed.find()
+    OverhearedFeed.find({}, {limit: 5})
