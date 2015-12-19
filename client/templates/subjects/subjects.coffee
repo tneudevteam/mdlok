@@ -21,6 +21,7 @@ Template.Subjects.helpers
     Template.instance().modulesNumber.set [1..maxModulesNumber]
 
     for subject in subjects
+      subject.controlTypeShort = subject.controlType[0]
       if subject.modules.length isnt maxModulesNumber
         _.times maxModulesNumber - subject.modules.length, ->
           subject.modules.push {

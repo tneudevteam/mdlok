@@ -19,7 +19,7 @@
         {{#each summarySubjects}}
           <tr class="subject-row" data-name="{{name}}" data-type="{{controlType}}">
             <td class="mdl-data-table__cell--non-numeric">
-              {{name}}
+              {{name}} <span class="control-type mdl-color-text--grey-500">({{controlType}})</span>
             </td>
             {{#each modules}}
               <td>{{score}}</td>
