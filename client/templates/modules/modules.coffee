@@ -9,7 +9,7 @@ Template.Modules.onDestroyed ->
 
 Template.Modules.onRendered ->
   if @data.selectedModule
-    openModule @data.selectedModule
+    openModule @data.selectedModule - 1
 
 Template.Modules.helpers
   tabs: ->

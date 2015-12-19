@@ -23,4 +23,4 @@ Template.Subject.helpers
 Template.Subject.events
   'click .module-card': (event, tmpl) ->
     selectedModule = parseInt tmpl.$(event.currentTarget).data('name').split(' ')[1]
-    Router.go "/modules##{(selectedModule - 1)}"
+    Router.go "/modules##{selectedModule}"
