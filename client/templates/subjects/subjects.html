@@ -1,8 +1,39 @@
 <template name="Subjects">
   {{#if subjects}}
-    {{#each subjects}}
-      {{> SubjectCard name=name totalScore=totalScore type=controlType}}
-    {{/each}}
+    {{#unless isPhone}}
+      <table class="summary-table mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Предмет</th>
+          {{#each modulesNumber}}
+            <th>
+              <a href="/modules#{{this}}">
+                Модуль {{this}}
+              </a>
+            </th>
+          {{/each}}
+          <th>Підсумок</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each summarySubjects}}
+          <tr class="subject-row" data-name="{{name}}" data-type="{{controlType}}">
+            <td class="mdl-data-table__cell--non-numeric">
+              {{name}}
+            </td>
+            {{#each modules}}
+              <td>{{score}}</td>
+            {{/each}}
+            <td><strong>{{totalScore}}</strong></td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      {{#each subjects}}
+        {{> SubjectCard name=name totalScore=totalScore type=controlType}}
+      {{/each}}
+    {{/unless}}
   {{else}}
     {{> NoItems}}
   {{/if}}
