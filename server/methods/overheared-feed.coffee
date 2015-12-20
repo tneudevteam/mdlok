@@ -15,7 +15,9 @@ Meteor.startup ->
       post.text.length > 0
     ).first(5).value()
 
-    OverhearedFeed.remove({})
+    postsToRemove = _.pluck OverhearedFeed.find().fetch(), '_id'
     _.each last5Posts, (post) ->
       OverhearedFeed.insert post
+    _.each postsToRemove, (id) ->
+      OverhearedFeed.remove {_id: id}
   , 30000
