@@ -26,16 +26,22 @@ Template.Subjects.helpers
         _.times maxModulesNumber - subject.modules.length, ->
           subject.modules.push {
             date: ''
-            score: ''
+            score: '–'
             weight: ''
           }
 
     for subject in subjects
-      realModulesCount = _.filter(subject.modules, (module) -> module.score isnt 0 and module.score isnt '').length
-      allScoresSum = _.chain(subject.modules).filter((module) -> module.score isnt 0)
-      .reduce(((memo, num) -> memo + num.score), 0).value()
+      realModulesCount = _.filter(subject.modules, (module) ->
+        module.score isnt 0 and module.score isnt '' and module.score isnt '–'
+      ).length
+      allScoresSum = _.chain(subject.modules).filter((module) ->
+        module.score isnt 0 and module.score isnt '–' and module.score isnt ''
+      ).reduce(((memo, num) ->
+        memo + num.score
+      ), 0).value()
       subject.averageScore = Math.round(allScoresSum / realModulesCount)
 
+    console.log subjects
     subjects
 
 

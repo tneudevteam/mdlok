@@ -17,16 +17,26 @@
         </thead>
         <tbody>
         {{#each summarySubjects}}
-          <tr class="subject-row mdl-color-text--white"
-              data-name="{{name}}" data-type="{{controlType}}" data-color="{{scoreColorFor totalScore}}">
-            <td class="{{scoreColorFor averageScore}} mdl-data-table__cell--non-numeric">
-              {{name}} <span class="control-type">({{controlType}})</span>
-            </td>
-            {{#each modules}}
-              <td class="{{scoreColorFor score}}">{{score}}</td>
-            {{/each}}
-            <td class="{{scoreColorFor totalScore}}"><strong>{{totalScore}}</strong></td>
-          </tr>
+          {{#let averageScore = averageScore}}
+            <tr class="subject-row mdl-color-text--white"
+                data-name="{{name}}" data-type="{{controlType}}" data-color="{{scoreColorFor totalScore}}">
+              <td class="{{scoreColorFor averageScore}} mdl-data-table__cell--non-numeric">
+                {{name}} <span class="control-type">({{controlType}})</span>
+              </td>
+              {{#each modules}}
+                <td class="
+                {{#if $eq score '–'}}
+                  {{scoreColorFor averageScore}}
+                {{else}}
+                  {{scoreColorFor score}}
+                {{/if}}
+              ">
+                  {{score}}
+                </td>
+              {{/each}}
+              <td class="{{scoreColorFor totalScore}}"><strong>{{totalScore}}</strong></td>
+            </tr>
+          {{/let}}
         {{/each}}
         </tbody>
       </table>
