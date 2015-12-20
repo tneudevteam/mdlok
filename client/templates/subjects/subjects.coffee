@@ -41,7 +41,6 @@ Template.Subjects.helpers
       ), 0).value()
       subject.averageScore = Math.round(allScoresSum / realModulesCount)
 
-    console.log subjects
     subjects
 
 
