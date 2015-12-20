@@ -50,3 +50,6 @@ Template.Subjects.events
     selectedSubject = tmpl.$(event.currentTarget).data('name')
     selectedSubjectType = tmpl.$(event.currentTarget).data('type')
     Router.go "/subject/#{selectedSubject}@#{selectedSubjectType}"
+  'click .module-link': (event, tmpl) ->
+    selectedModule = tmpl.$(event.currentTarget).data('module')
+    Router.go "/modules##{selectedModule}"

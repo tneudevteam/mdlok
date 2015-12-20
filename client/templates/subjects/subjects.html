@@ -6,10 +6,8 @@
         <tr>
           <th class="mdl-data-table__cell--non-numeric mdl-color-text--white">Предмет</th>
           {{#each modulesNumber}}
-            <th>
-              <a href="/modules#{{this}}" class="mdl-color-text--white">
-                Модуль {{this}}
-              </a>
+            <th class="module-link mdl-color-text--white" data-module="{{this}}">
+              Модуль {{this}}
             </th>
           {{/each}}
           <th class="mdl-color-text--white">Підсумок</th>

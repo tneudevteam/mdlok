@@ -7,8 +7,17 @@
 
   thead {
     th:not(:first-child) {
+      cursor: pointer;
       text-align: center;
       border-right: 1px solid @borderColor;
+
+      &:hover:not(:last-child) {
+        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+      }
+
+      &:hover:last-child {
+        cursor: default;
+      }
     }
 
     th:nth-child(2) {
