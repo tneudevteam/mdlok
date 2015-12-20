@@ -1,7 +1,19 @@
 @import "../../stylesheets/base.import.less";
+@borderColor: rgb(198, 198, 198);
 
 .summary-table {
   width: 100%;
+
+  thead {
+    th:not(:first-child) {
+      text-align: center;
+      border-right: 1px solid @borderColor;
+    }
+
+    th:nth-child(2) {
+      border-left: 1px solid @borderColor;
+    }
+  }
 
   .subject-row {
     cursor: pointer;
@@ -13,6 +25,11 @@
 
     td:not(:first-child) {
       text-align: center;
+      border-right: 1px solid @borderColor;
+    }
+
+    td:nth-child(2) {
+      border-left: 1px solid @borderColor;
     }
 
     .control-type {
