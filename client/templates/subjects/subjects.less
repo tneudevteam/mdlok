@@ -5,9 +5,19 @@
 
   .subject-row {
     cursor: pointer;
+    .transition(box-shadow .15s);
+
+    &:hover td {
+      box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+    }
+
+    td:not(:first-child) {
+      text-align: center;
+    }
 
     .control-type {
       font-size: .85rem;
+      opacity: .5;
     }
   }
 }

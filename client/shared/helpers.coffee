@@ -42,7 +42,7 @@ Template.registerHelper 'scoreColorFor', (score) ->
     when 60 < score
       'mdl-color--red-600'
     else
-      'mdl-color--blue-grey-600'
+      'mdl-color--grey-600'
 
 Template.registerHelper 'colorFor', (name) ->
   colors = [

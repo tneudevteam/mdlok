@@ -2,29 +2,30 @@
   {{#if subjects}}
     {{#unless isPhone}}
       <table class="summary-table mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-        <thead>
+        <thead class="mdl-color--green-700">
         <tr>
-          <th class="mdl-data-table__cell--non-numeric">Предмет</th>
+          <th class="mdl-data-table__cell--non-numeric mdl-color-text--white">Предмет</th>
           {{#each modulesNumber}}
             <th>
-              <a href="/modules#{{this}}">
+              <a href="/modules#{{this}}" class="mdl-color-text--white">
                 Модуль {{this}}
               </a>
             </th>
           {{/each}}
-          <th>Підсумок</th>
+          <th class="mdl-color-text--white">Підсумок</th>
         </tr>
         </thead>
         <tbody>
         {{#each summarySubjects}}
-          <tr class="subject-row" data-name="{{name}}" data-type="{{controlType}}">
-            <td class="mdl-data-table__cell--non-numeric">
-              {{name}} <span class="control-type mdl-color-text--grey-500">({{controlType}})</span>
+          <tr class="subject-row mdl-color-text--white"
+              data-name="{{name}}" data-type="{{controlType}}" data-color="{{scoreColorFor totalScore}}">
+            <td class="{{scoreColorFor averageScore}} mdl-data-table__cell--non-numeric">
+              {{name}} <span class="control-type">({{controlType}})</span>
             </td>
             {{#each modules}}
-              <td>{{score}}</td>
+              <td class="{{scoreColorFor score}}">{{score}}</td>
             {{/each}}
-            <td><strong>{{totalScore}}</strong></td>
+            <td class="{{scoreColorFor totalScore}}"><strong>{{totalScore}}</strong></td>
           </tr>
         {{/each}}
         </tbody>
