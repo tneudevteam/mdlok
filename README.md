@@ -9,7 +9,7 @@
 3. `curl https://install.meteor.com/ | sh`
 4. `meteor --settings config/settings.json`
 
-# What you can face with
+# What can you face with
 1. [Meteor](https://www.meteor.com/)
 2. [LESS](http://lesscss.org/)
 3. [CoffeeScript](http://coffeescript.org/)
