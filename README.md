@@ -1,7 +1,5 @@
 # MODULE.OK for web
 ![Home page](http://i.imgur.com/944QaxN.png)
-![Subjects page](http://i.imgur.com/VLj0KLV.png)
-![Modules page](http://i.imgur.com/1Lz3cJs.png)
 
 # How to run
 1. `git clone https://github.com/vladgolubev/mdlok.git`
@@ -25,3 +23,8 @@
 8. [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 9. [Highcharts](http://www.highcharts.com/)
 10. [jQuery](http://jquery.com/)
+
+# More screenshots
+![Subjects page](http://i.imgur.com/VLj0KLV.png)
+![Modules page](http://i.imgur.com/1Lz3cJs.png)
+But better to see live: [modulok.ml](http://modulok.ml)
