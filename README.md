@@ -1,7 +1,5 @@
 # MODULE.OK for web
 ![Home page](http://i.imgur.com/944QaxN.png)
-![Subjects page](http://i.imgur.com/VLj0KLV.png)
-![Modules page](http://i.imgur.com/1Lz3cJs.png)
 
 # How to run
 1. `git clone https://github.com/vladgolubev/mdlok.git`
@@ -9,7 +7,12 @@
 3. `curl https://install.meteor.com/ | sh`
 4. `meteor --settings config/settings.json`
 
-# What you can face with
+# You may consider interesting
+1. [TNEU News API](https://github.com/vladgolubev/moduleok-api)
+2. [mod.tanet API](https://github.com/vladgolubev/mod.tanet-api)
+3. [MODULE.OK native Android App (abandoned)](https://github.com/vladgolubev/MODULE.OK)
+
+# What can you face with
 1. [Meteor](https://www.meteor.com/)
 2. [LESS](http://lesscss.org/)
 3. [CoffeeScript](http://coffeescript.org/)
@@ -20,3 +23,8 @@
 8. [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 9. [Highcharts](http://www.highcharts.com/)
 10. [jQuery](http://jquery.com/)
+
+# More screenshots
+![Subjects page](http://i.imgur.com/VLj0KLV.png)
+![Modules page](http://i.imgur.com/1Lz3cJs.png)
+But better to see live: [modulok.ml](http://modulok.ml)
