@@ -30,7 +30,6 @@ Template.ScoresDistributionBlock.onRendered ->
         if scoreData.y is 0
           delete chartData[index]
 
-      console.log chartData
       $('#scores-distribution-chart').highcharts
         chart:
           type: 'pie'

@@ -1,11 +1,11 @@
 template(name='ModuleCard')
-    div(data-name='#{name}', data-type='#{type}', class='#{classes}')
-        div(class='{{scoreColorFor score}} mdl-card__title mdl-card--expand')
-            h2.module-info.truncate.mdl-card__title-text.mdl-color-text--white
-                | #{name}
-                br
-                span.date #{date}
-                br
-                span.weight #{weight}%
-            .mdl-layout-spacer
-            span.subject-total-score.mdl-color-text--white #{score}
+  div(data-name='#{name}', data-type='#{type}', class='#{classes}')
+    div(class='{{scoreColorFor score}} mdl-card__title mdl-card--expand')
+      h2.module-info.truncate.mdl-card__title-text.mdl-color-text--white
+        | #{name}
+        br
+        span.date #{date}
+        br
+        span.weight #{weight}%
+      .mdl-layout-spacer
+      span.subject-total-score.mdl-color-text--white #{score}
