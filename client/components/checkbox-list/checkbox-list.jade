@@ -1,0 +1,7 @@
+template(name='CheckBoxList')
+  ul.checkbox-list
+    each this
+      li
+        label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for=id)
+          input.mdl-checkbox__input(type='checkbox', id=id)
+          span.mdl-checkbox__label= caption
