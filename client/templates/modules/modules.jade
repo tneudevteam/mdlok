@@ -1,0 +1,14 @@
+template(name='Modules')
+  if modules
+    .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+      .mdl-tabs__tab-bar.modules-tabs
+        each tab in tabs
+          a.mdl-tabs__tab(href=tab.href, class=tab.class)= tab.name
+
+      +HammerTouchArea(gestureMap=moduleGestures)
+        each module in modules
+          .module-scores-list.mdl-tabs__panel.mdl-grid(id=module.id, class=module.class)
+            each subject in module.subjects
+              +ModuleCard(name=subject.name score=subject.score date=subject.date weight=subject.weight type=subject.type)
+  else
+    +NoItems

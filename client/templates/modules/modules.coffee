@@ -44,9 +44,12 @@ Template.Modules.helpers
     Template.instance().tabs.set _.map modules, (module, index) ->
       name: "#{(index + 1)}"
       id: "module#{index}"
+      href: "#module#{index}"
+      class: if index is 0 then 'is-active' else ''
 
     _.map modules, (module, index) ->
       module.id = "module#{index}"
+      module.class = if index is 0 then 'is-active' else ''
       module
 
 openNavDrawer = ->

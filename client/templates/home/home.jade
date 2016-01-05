@@ -1,0 +1,9 @@
+template(name='Home')
+  if isPhone
+    +LastModulesBlock width='mdl-cell--12-col'
+    +ScoresDistributionBlock width='mdl-cell--4-col'
+    +OverhearedFeed width='mdl-cell--8-col'
+  else
+    +LastModulesBlock width='mdl-cell--12-col'
+    +OverhearedFeed width='mdl-cell--8-col'
+    +ScoresDistributionBlock width='mdl-cell--4-col'

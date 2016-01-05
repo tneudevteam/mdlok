@@ -1,0 +1,17 @@
+template(name='LastScoreCard')
+  div(
+  data-name=name, data-type=type,
+  class='last-score-card subject-card \
+  mdl-card mdl-shadow--2dp \
+  mdl-cell mdl-cell--12-col-phone mdl-cell--4-col-desktop'
+  )
+    .mdl-card__title.mdl-card--expand(class='{{scoreColorFor score}}')
+      h2.last-score-info.truncate.mdl-card__title-text.mdl-color-text--white
+        | #{subjectName}
+        br
+        span.module-name #{moduleName}
+        br
+        span.date #{date}
+        span.weight #{weight}%
+      .mdl-layout-spacer
+      span.subject-total-score.mdl-color-text--white #{score}

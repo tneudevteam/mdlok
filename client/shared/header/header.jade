@@ -1,0 +1,11 @@
+template(name='Header')
+  header.demo-header.mdl-layout__header.mdl-color--green-700.mdl-color-text--white
+    .mdl-layout__header-row
+      if displayBackButton
+        button#back-button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon(title='Назад')
+          i.material-icons arrow_back
+
+      span.mdl-layout-title.truncate= appHeader
+      .mdl-layout-spacer
+      button#refresh-data.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon(title='Оновити дані')
+        i.material-icons refresh

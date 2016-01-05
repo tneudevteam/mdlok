@@ -1,0 +1,22 @@
+template(name='Auth')
+  .mdl-cell.mdl-cell--4-col-desktop.mdl-cell--middle
+    .auth-card.mdl-card.mdl-shadow--2dp
+      .mdl-card__title.mdl-color--green-700.mdl-color-text--white
+        h2.mdl-card__title-text.width-100 Вхід
+        i.material-icons lock
+      .mdl-card__supporting-text.mdl-color-text--grey-600
+        if loggingIn
+          +Loading
+        else
+          p.auth-hint.mdl-card__subtitle-text
+            | Введіть логін та пароль від
+            a(href='http://mod.tanet.edu.te.ua', target='_blank') mod.tanet.edu.te.ua
+          form(action='#')
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input#login.mdl-textfield__input(type='text', pattern='.{4,16}')
+              label.mdl-textfield__label(for='login') Логін
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input#password.mdl-textfield__input(type='password', pattern='.{4,16}')
+              label.mdl-textfield__label(for='password') Пароль
+            br
+            a#do-auth.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--raised.mdl-button--accent(href='#') Увійти

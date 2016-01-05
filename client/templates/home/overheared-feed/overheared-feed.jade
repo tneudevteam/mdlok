@@ -1,0 +1,23 @@
+template(name='OverhearedFeed')
+  .overheared-block.mdl-cell.mdl-grid.mdl-grid--no-spacing.mdl-card.mdl-shadow--2dp(class=width)
+    .overheared-block-title.mdl-card__title.mdl-color--blue-grey-300
+      h2.mdl-card__title-text.mdl-color-text--white Підслухано у ТНЕУ
+    each post in overhearedFeed
+      .overheared-post-card.mdl-card.mdl-cell.mdl-cell--12-col.mdl-color--blue-grey-100(data-post-id=post.id)
+        .overheared-post-content.mdl-card__supporting-text.mdl-color-text--black.truncate
+          | #{post.text}
+          .post-metrics.mdl-color-text--grey-700
+            span.post-metric.date
+              i.fa.fa-calendar
+              | {{formatUnixTime post.date}}
+            a.mdl-color-text--grey-700.open-overheared-post(href='https://vk.com/public71208622?w=wall-71208622_{{post.id}}', target='_blank')
+              span.post-metric.likes
+                i.fa.fa-heart
+                | #{post.likes}
+              span.post-metric.comments
+                i.fa.fa-comments
+                | #{post.comments}
+
+    .mdl-card__actions.mdl-card--border.mdl-color--blue-grey-300
+      a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect.mdl-color-text--white(href='https://vk.com/public71208622', target='_blank')
+        | Читати далі...

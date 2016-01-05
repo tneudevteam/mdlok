@@ -1,0 +1,9 @@
+template(name='Subjects')
+  if subjects
+    unless isPhone
+      +SubjectsTable
+    else
+      each subjects
+        +SubjectCard(name=name totalScore=totalScore type=controlType)
+  else
+    +NoItems

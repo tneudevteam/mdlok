@@ -1,0 +1,13 @@
+template(name='NavDrawerHeader')
+  header.nav-drawer-header
+    span.student-name= name
+    span= group
+    .nav-drawer-avatar-dropdown
+      span= semester
+      .mdl-layout-spacer
+      button#semester-dropdown-button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--icon
+        i.material-icons(role='presentation') arrow_drop_down
+      ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect(for='semester-dropdown-button')
+        li.mdl-menu__item(data-semester='0') Перший семестр
+        li.mdl-menu__item(data-semester='1') Другий семестр
+        li.mdl-menu__item(data-semester='2') Увесь рік
