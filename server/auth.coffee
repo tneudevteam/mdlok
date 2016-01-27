@@ -10,7 +10,7 @@ Meteor.methods
       else
         true
     else
-      false
+      throw new Meteor.Error('Incorrect credentials')
 
   refresh: ->
     student = Students.findOne(userId: @userId)

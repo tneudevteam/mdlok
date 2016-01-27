@@ -1,33 +1,31 @@
 Template.Auth.onCreated ->
   @loggingIn = new ReactiveVar false
+  @doAuth = =>
+    credentials = {
+      login: @$('#login').val()
+      password: @$('#password').val()
+    }
+
+    @loggingIn.set true
+    Meteor.promise('auth', credentials)
+    .then(=>
+      Meteor.loginWithPassword credentials.login, credentials.password, ->
+        Router.go '/'
+    ).catch(=>
+      sAlert.error 'Неправильний логін або пароль'
+      @loggingIn.set false
+    )
 
 
 Template.Auth.helpers
-  'loggingIn': ->
+  loggingIn: ->
     Template.instance().loggingIn.get()
 
 
 Template.Auth.events
   'keypress #login, keypress #password': (event, tmpl) ->
     if pressedEnter = event.which is 13
-      doAuth tmpl
+      tmpl.doAuth()
 
   'click #do-auth': (event, tmpl) ->
-    doAuth tmpl
-
-
-doAuth = (tmpl) ->
-  tmpl.loggingIn.set true
-
-  credentials = getCredentials tmpl
-  Meteor.call 'auth', credentials, (err, result) ->
-    if result
-      Meteor.loginWithPassword credentials.login, credentials.password, (error) ->
-        Router.go '/'
-    else
-      sAlert.error 'Неправильний логін або пароль'
-      tmpl.loggingIn.set false
-
-getCredentials = (tmpl) ->
-  login: tmpl.$('#login').val()
-  password: tmpl.$('#password').val()
+    tmpl.doAuth()
