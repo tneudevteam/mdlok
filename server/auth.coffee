@@ -1,6 +1,7 @@
 Meteor.methods
   auth: (credentials) ->
     loginResponse = getLoginResponse credentials
+#    loginResponse = fakeAuth()
 
     if loginResponse.success
       if not userRegistered credentials.login
