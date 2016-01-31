@@ -1,4 +1,6 @@
 # MODULE.OK for web
+[![Code Climate](https://codeclimate.com/github/vladgolubev/mdlok/badges/gpa.svg)](https://codeclimate.com/github/vladgolubev/mdlok)
+
 ![Home page](http://i.imgur.com/944QaxN.png)
 
 # How to run
