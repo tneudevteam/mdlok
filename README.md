@@ -31,3 +31,7 @@
 ![Subjects page](http://i.imgur.com/VLj0KLV.png)
 ![Modules page](http://i.imgur.com/1Lz3cJs.png)
 But better to see live: [modulok.ml](http://modulok.ml)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vladgolubev/mdlok/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
