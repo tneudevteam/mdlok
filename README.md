@@ -1,4 +1,5 @@
 # MODULE.OK for web
+[![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 [![Code Climate](https://codeclimate.com/github/vladgolubev/mdlok/badges/gpa.svg)](https://codeclimate.com/github/vladgolubev/mdlok)
 
 ![Home page](http://i.imgur.com/944QaxN.png)
